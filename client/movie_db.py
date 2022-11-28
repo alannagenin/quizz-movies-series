@@ -42,4 +42,8 @@ class MovieDB(AbstractRequest):
             raw_request = req.json()
             return raw_request
     
-
+if __name__ == "__main__":
+    requests = MovieDB()
+    print(requests.get_movie_info(), "\n\n")
+    print(requests.get_tv_series_info(), "\n\n")
+    print(requests.get_people_info())
