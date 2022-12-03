@@ -5,8 +5,8 @@ class TestQuestionMovieGenre(TestCase):
     def test_question_movie_genre(self):
         # GIVEN
         question = QuestionMovieGenre(
-        movie_title='The Fifth Element',
-        original_movie_title='The Fifth Element',
+        movie_title = 'The Fifth Element',
+        original_movie_title = 'The Fifth Element',
         budget = 90000000,
         genres_name = ['Adventure', 'Fantasy', 'Action', 'Thriller', 'Science Fiction'],
         release_date = 1997,
