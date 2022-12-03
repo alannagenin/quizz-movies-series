@@ -1,3 +1,4 @@
+from datetime import datetime
 from dotenv import load_dotenv
 import os
 from requests import get
@@ -39,7 +40,7 @@ class MovieDB(AbstractRequest):
                 , 'original_movie_title': raw_request['original_title']
                 , 'budget':raw_request['budget']
                 , 'genres_name': [raw_request['genres'][item]['name'] for item in range(len(raw_request['genres']))]
-                , 'release_date': raw_request['release_date']
+                , 'release_date': datetime.strptime(raw_request['release_date'], '%Y-%m-%d').year
                 , 'spoken_languages': [raw_request['spoken_languages'][item]['english_name'] for item in range(len(raw_request['spoken_languages']))]
                 , 'plot': raw_request['overview']
                 }
