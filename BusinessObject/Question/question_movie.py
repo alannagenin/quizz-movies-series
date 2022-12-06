@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from abstract_question import AbstractQuestion
+from BusinessObject.Question.abstract_question import AbstractQuestion
 
 class QuestionMovie(AbstractQuestion, ABC):
     def __init__(self, movie_title, original_movie_title, budget, genres_name, release_date, spoken_languages, plot):
@@ -18,3 +18,4 @@ class QuestionMovie(AbstractQuestion, ABC):
     @abstractmethod
     def get_correct_answer(self):
         pass
+
