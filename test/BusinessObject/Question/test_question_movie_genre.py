@@ -15,7 +15,10 @@ class TestQuestionMovieGenre(TestCase):
         )
         # WHEN
         result = question.display_question()
-        answer = question.get_correct_answer()
+        correct_answer = question.get_correct_answer()
+        all_correct_answers = question.get_all_correct_answer()
         # THEN
-        self.assertEquals(result, 'What is the main genre of the movie The Fifth Element?')
-        self.assertEquals(answer, 'Adventure')
+        self.assertEqual(result, 'What is the main genre of the movie The Fifth Element?')
+        self.assertEqual(correct_answer, 'Adventure')
+        self.assertEqual(all_correct_answers, ['Adventure', 'Fantasy', 'Action', 'Thriller', 'Science Fiction'])
+
