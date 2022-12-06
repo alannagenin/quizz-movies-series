@@ -1,7 +1,6 @@
-# [WIP] Movie and series quizz
+# [WIP] Movie and series quizz :movie_camera:
 
-The aim of this project is to do a quizz about movies and series requesting the [The Movie DB](https://www.themoviedb.org/).
-
+The aim of this project is to do a solo/multiplayer quizz about movies and series requesting the [The Movie DB](https://www.themoviedb.org/).
 
 ## Quick start
 
