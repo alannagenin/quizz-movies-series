@@ -15,7 +15,7 @@ class QuestionMovieGenre(QuestionMovie):
         self.genres_name : string
             Genres of the movie
         self.release_date : string
-            Date of release of the movie (yyyy-mm-dd format)
+            Date of release of the movie (yyyy format)
         self.spoken_languages : string
             Languages spoken in the movie
         self.plot : string
