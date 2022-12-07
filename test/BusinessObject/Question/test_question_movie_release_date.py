@@ -19,4 +19,5 @@ class TestQuestionMovieReleaseDate(TestCase):
         # THEN
         self.assertEqual(result, 'When was the film The Fifth Element released?')
         self.assertEqual(correct_answer, 1997)
+        self.assertIsInstance(question, QuestionMovieReleaseDate)
 

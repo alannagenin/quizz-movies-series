@@ -21,4 +21,5 @@ class TestQuestionMovieGenre(TestCase):
         self.assertEqual(result, 'What is the main genre of the movie The Fifth Element?')
         self.assertEqual(correct_answer, 'Adventure')
         self.assertEqual(all_correct_answers, ['Adventure', 'Fantasy', 'Action', 'Thriller', 'Science Fiction'])
+        self.assertIsInstance(question, QuestionMovieGenre)
 
