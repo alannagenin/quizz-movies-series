@@ -1,11 +1,10 @@
-# [WIP] Movie and series quizz
+# [WIP] Movie and series quizz :movie_camera:
 
-The aim of this project is to do a quizz about movies and series requesting an API. Here, the API used is [The Movie DB](https://www.themoviedb.org/).
-
+The aim of this project is to do a solo/multiplayer quizz about movies and series requesting the [The Movie DB](https://www.themoviedb.org/).
 
 ## Quick start
 
-```python
+```bash
 git clone git@github.com:alannagenin/quizz-movies-series.git
 cd quizz-movies-series
 pip3 install -r requirements.txt
