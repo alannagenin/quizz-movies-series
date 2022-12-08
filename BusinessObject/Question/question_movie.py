@@ -22,6 +22,8 @@ class QuestionMovie(AbstractQuestion, ABC):
             Languages spoken in the movie
         self.plot : string
             Synopsis of the movie in few lines
+        self.type : string
+            type of the question
     '''
         self.movie_title = movie_title
         self.original_movie_title = original_movie_title
@@ -30,6 +32,7 @@ class QuestionMovie(AbstractQuestion, ABC):
         self.release_date = release_date
         self.spoken_languages = spoken_languages
         self.plot = plot
+        self.type = "movie"
     
     @abstractmethod
     def display_question(self):

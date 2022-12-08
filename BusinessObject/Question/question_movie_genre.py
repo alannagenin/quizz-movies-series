@@ -20,9 +20,12 @@ class QuestionMovieGenre(QuestionMovie):
             Languages spoken in the movie
         self.plot : string
             Synopsis of the movie in few lines
+        self.type : string
+            type of the question
     '''
     def __init__(self, movie_title, original_movie_title, budget, genres_name, release_date, spoken_languages, plot):
         super().__init__(movie_title, original_movie_title, budget, genres_name, release_date, spoken_languages, plot)
+        self.type = "movie genre"
     
     def display_question(self):
         '''
