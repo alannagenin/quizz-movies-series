@@ -124,7 +124,6 @@ class MovieDB(AbstractRequest):
                 , 'deathday': raw_request['deathday']
                 , 'is_death': False if raw_request['deathday'] is None else True
                 }
-            print(raw_request, "\n\n")
             return result
         
     
@@ -163,9 +162,8 @@ class MovieDB(AbstractRequest):
     
 if __name__ == "__main__":
     requests = MovieDB()
-    # print(requests.get_movie_info(18), "\n\n")
-    # print(requests.get_tv_series_info(20000), "\n\n")
-    print(requests.get_people_info(51366), "\n\n")
+    print(requests.get_tv_series_info(1995), "\n\n")
+    # print(requests.get_people_info(51366), "\n\n")
     # print(requests.get_people_credits(12))
     # print(requests.get_list_movie_genres())
     # print(requests.get_list_tv_genres())
