@@ -23,7 +23,7 @@ class QuestionMovie(AbstractQuestion, ABC):
         self.plot : string
             Synopsis of the movie in few lines
         self.type : string
-            type of the question
+            Type of the question
     '''
         self.movie_title = movie_title
         self.original_movie_title = original_movie_title
@@ -36,9 +36,15 @@ class QuestionMovie(AbstractQuestion, ABC):
     
     @abstractmethod
     def display_question(self):
+        '''
+            Returns the question as it should be displayed in the quizz.
+        '''
         pass
 
     @abstractmethod
     def get_correct_answer(self):
+        '''
+            Returns the correct answer of the corresponding question.
+        '''
         pass
 

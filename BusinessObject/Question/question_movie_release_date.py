@@ -21,7 +21,7 @@ class QuestionMovieReleaseDate(QuestionMovie):
         self.plot : string
             Synopsis of the movie in few lines
         self.type : string
-            type of the question
+            Type of the question
     '''
     def __init__(self, movie_title, original_movie_title, budget, genres_name, release_date, spoken_languages, plot):
         super().__init__(movie_title, original_movie_title, budget, genres_name, release_date, spoken_languages, plot)
