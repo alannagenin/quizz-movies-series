@@ -1,9 +1,14 @@
 from BusinessObject.Question.question_series import QuestionSeries
 
+
 class QuestionSeriesNumberEpisodesTotal(QuestionSeries):
-    def __init__(self, series_title, original_series_title, first_air_date, last_air_date, nb_episodes_per_season, nb_episodes_tot, nb_seasons, tv_host, genres_name, spoken_languages, plot):
+    def __init__(
+            self, series_title, original_series_title, first_air_date,
+            last_air_date, nb_episodes_per_season, nb_episodes_tot,
+            nb_seasons, tv_host, genres_name, spoken_languages, plot):
         '''
-        A question about the total number of episodes of a TV series based on its name.
+        A question about the total number of episodes of a TV series
+        based on its name.
 
         Parameters
         ----------
@@ -16,7 +21,7 @@ class QuestionSeriesNumberEpisodesTotal(QuestionSeries):
         self.last_air_date : int
             Date of the last air date (yyyy format)
         self.nb_episodes_per_season : list
-            Number of episodes per season 
+            Number of episodes per season
         self.nb_episodes_tot : int
             Total number of episodes
         self.nb_seasons : int
@@ -29,12 +34,17 @@ class QuestionSeriesNumberEpisodesTotal(QuestionSeries):
             Languages spoken in the series
         self.plot : string
             Synopsis of the series in few lines
-        self.type : string
+        self.type_question : string
             Type of the question
         '''
-        super().__init__(series_title, original_series_title, first_air_date, last_air_date, nb_episodes_per_season, nb_episodes_tot, nb_seasons, tv_host, genres_name, spoken_languages, plot)
-        self.type = "series number episodes total"
-    
+        super().__init__(
+            series_title, original_series_title, first_air_date,
+            last_air_date, nb_episodes_per_season, nb_episodes_tot,
+            nb_seasons, tv_host, genres_name, spoken_languages,
+            plot
+        )
+        self.type_question = "series number episodes total"
+
     def display_question(self):
         '''
             Returns the question as it should be displayed in the quizz.

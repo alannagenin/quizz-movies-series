@@ -1,5 +1,6 @@
 from BusinessObject.Question.question_movie import QuestionMovie
 
+
 class QuestionMovieGenre(QuestionMovie):
     '''
         A question about the genre of a movie
@@ -20,13 +21,18 @@ class QuestionMovieGenre(QuestionMovie):
             Languages spoken in the movie
         self.plot : string
             Synopsis of the movie in few lines
-        self.type : string
+        self.type_question : string
             Type of the question
     '''
-    def __init__(self, movie_title, original_movie_title, budget, genres_name, release_date, spoken_languages, plot):
-        super().__init__(movie_title, original_movie_title, budget, genres_name, release_date, spoken_languages, plot)
-        self.type = "movie genre"
-    
+    def __init__(
+                self, movie_title, original_movie_title, budget, genres_name,
+                release_date, spoken_languages, plot):
+        super().__init__(
+                        movie_title, original_movie_title, budget, genres_name,
+                        release_date, spoken_languages, plot,
+                        )
+        self.type_question = "movie genre"
+
     def display_question(self):
         '''
             Returns the question as it should be displayed in the quizz.
@@ -38,10 +44,9 @@ class QuestionMovieGenre(QuestionMovie):
             Returns the first answer of the corresponding question.
         '''
         return self.genres_name[0]
-    
+
     def get_all_correct_answer(self):
         '''
             Returns all the correct answers of the corresponding question.
         '''
         return self.genres_name
-

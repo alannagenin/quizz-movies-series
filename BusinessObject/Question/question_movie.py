@@ -1,8 +1,11 @@
 from abc import ABC, abstractmethod
 from BusinessObject.Question.abstract_question import AbstractQuestion
 
+
 class QuestionMovie(AbstractQuestion, ABC):
-    def __init__(self, movie_title, original_movie_title, budget, genres_name, release_date, spoken_languages, plot):
+    def __init__(
+                self, movie_title, original_movie_title, budget, genres_name,
+                release_date, spoken_languages, plot):
         '''
         Create a new movie question.
 
@@ -12,7 +15,7 @@ class QuestionMovie(AbstractQuestion, ABC):
             Title of the movie
         self.original_movie_title : string
             Title of the movie in its original language
-        self.budget : integer
+        self.budget : integertype_question = "movie plot"
             Budget of the movie
         self.genres_name : string
             Genres of the movie
@@ -22,18 +25,18 @@ class QuestionMovie(AbstractQuestion, ABC):
             Languages spoken in the movie
         self.plot : string
             Synopsis of the movie in few lines
-        self.type : string
+        self.type_question : string
             Type of the question
     '''
         self.movie_title = movie_title
         self.original_movie_title = original_movie_title
         self.budget = budget
-        self.genres_name =  genres_name
+        self.genres_name = genres_name
         self.release_date = release_date
         self.spoken_languages = spoken_languages
         self.plot = plot
-        self.type = "movie"
-    
+        self.type_question = "movie"
+
     @abstractmethod
     def display_question(self):
         '''
@@ -47,4 +50,3 @@ class QuestionMovie(AbstractQuestion, ABC):
             Returns the correct answer of the corresponding question.
         '''
         pass
-

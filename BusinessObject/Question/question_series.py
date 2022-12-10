@@ -1,8 +1,14 @@
 from abc import ABC, abstractmethod
 from BusinessObject.Question.abstract_question import AbstractQuestion
 
+
 class QuestionSeries(AbstractQuestion, ABC):
-    def __init__(self, series_title, original_series_title, first_air_date, last_air_date, nb_episodes_per_season, nb_episodes_tot, nb_seasons, tv_host, genres_name, spoken_languages, plot):
+    def __init__(
+            self, series_title, original_series_title, first_air_date,
+            last_air_date, nb_episodes_per_season, nb_episodes_tot,
+            nb_seasons, tv_host, genres_name, spoken_languages,
+            plot
+            ):
         '''
         Create a new TV series question.
 
@@ -17,7 +23,7 @@ class QuestionSeries(AbstractQuestion, ABC):
         self.last_air_date : int
             Date of the last air date (yyyy format)
         self.nb_episodes_per_season : list
-            Number of episodes per season 
+            Number of episodes per season
         self.nb_episodes_tot : int
             Total number of episodes
         self.nb_seasons : int
@@ -30,7 +36,7 @@ class QuestionSeries(AbstractQuestion, ABC):
             Languages spoken in the series
         self.plot : string
             Synopsis of the series in few lines
-        self.type : string
+        self.type_question : string
             Type of the question
         '''
         self.series_title = series_title
@@ -44,8 +50,8 @@ class QuestionSeries(AbstractQuestion, ABC):
         self.genres_name = genres_name
         self.spoken_languages = spoken_languages
         self.plot = plot
-        self.type = "series"
-    
+        self.type_question = "series"
+
     @abstractmethod
     def display_question(self):
         '''
@@ -59,4 +65,3 @@ class QuestionSeries(AbstractQuestion, ABC):
             Returns the correct answer of the corresponding question.
         '''
         pass
-

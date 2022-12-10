@@ -1,5 +1,6 @@
 from BusinessObject.Question.question_movie import QuestionMovie
 
+
 class QuestionMoviePlot(QuestionMovie):
     '''
         A question about the name of a movie based on its plot.
@@ -20,12 +21,17 @@ class QuestionMoviePlot(QuestionMovie):
             Languages spoken in the movie
         self.plot : string
             Synopsis of the movie in one or few lines
-        self.type : string
+        self.type_question : string
             Type of the question
     '''
-    def __init__(self, movie_title, original_movie_title, budget, genres_name, release_date, spoken_languages, plot):
-        super().__init__(movie_title, original_movie_title, budget, genres_name, release_date, spoken_languages, plot)
-        self.type = "movie plot"
+    def __init__(
+                self, movie_title, original_movie_title, budget, genres_name,
+                release_date, spoken_languages, plot):
+        super().__init__(
+            movie_title, original_movie_title, budget, genres_name,
+            release_date, spoken_languages, plot
+        )
+        self.type_question = "movie plot"
 
     def display_question(self):
         '''
@@ -38,4 +44,3 @@ class QuestionMoviePlot(QuestionMovie):
             Returns the name of the movie.
         '''
         return self.movie_title
-
