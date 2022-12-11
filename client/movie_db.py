@@ -2,7 +2,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 import os
 from random import choice
-from requests import get
+import requests
 from abstract_request import AbstractRequest
 from BusinessObject.Question.question_factory import QuestionFactory
 load_dotenv()
@@ -33,9 +33,13 @@ class MovieDB(AbstractRequest):
                 - spoken languages in the movie
                 - plot of the movie
         '''
-        req = get(
-                    str(self.__DATABASE_URL) + "movie/" + str(movie_id) + "?api_key=" + str(self.__API_KEY)
-                )
+        payload = {
+            "api_key": str(self.__API_KEY)
+        }
+        req = requests.get(
+            str(self.__DATABASE_URL) + "movie/" + str(movie_id),
+            params=payload
+        )
         if req.status_code == 200:
             raw_request = req.json()
             question_factory = QuestionFactory()
@@ -76,9 +80,13 @@ class MovieDB(AbstractRequest):
                 - spoken languages
                 - plot
         '''
-        req = get(
-                    str(self.__DATABASE_URL) + "tv/" + str(tv_id) + "?api_key=" + str(self.__API_KEY)
-                )
+        payload = {
+            "api_key": str(self.__API_KEY)
+        }
+        req = requests.get(
+            str(self.__DATABASE_URL) + "tv/" + str(tv_id),
+            params=payload
+        )
         if req.status_code == 200:
             raw_request = req.json()
             result = {
@@ -116,9 +124,13 @@ class MovieDB(AbstractRequest):
                 - date of death
                 - is the person dead ?
         '''
-        req = get(
-                    str(self.__DATABASE_URL) + "person/" + str(people_id) + "?api_key=" + str(self.__API_KEY)
-                )
+        payload = {
+            "api_key": str(self.__API_KEY)
+        }
+        req = requests.get(
+            str(self.__DATABASE_URL) + "person/" + str(people_id),
+            params=payload
+        )
         if req.status_code == 200:
             raw_request = req.json()
             result = {
@@ -135,9 +147,14 @@ class MovieDB(AbstractRequest):
         '''
         Request to get people info based on its id.
         '''
-        req = get(
-                    str(self.__DATABASE_URL) + "person/" + str(people_id) + "/combined_credits?api_key=" + str(self.__API_KEY) + "&language=en-US"
-                )
+        payload = {
+            "api_key": str(self.__API_KEY),
+            "language": "en-US"
+        }
+        req = requests.get(
+            str(self.__DATABASE_URL) + "person/" + str(people_id) + "/combined_credits",
+            params=payload
+        )
         if req.status_code == 200:
             raw_request = req.json()
             return raw_request
@@ -145,10 +162,20 @@ class MovieDB(AbstractRequest):
     def get_list_movie_genres(self):
         '''
         Request to get all the movies genres.
+
+        Returns
+        -------
+        list
+            list of all the movie genres
         '''
-        req = get(
-                    str(self.__DATABASE_URL) + "genre/movie/list?api_key=" + str(self.__API_KEY) + "&language=en-US"
-                )
+        payload = {
+            "api_key": str(self.__API_KEY),
+            "language": "en-US"
+        }
+        req = requests.get(
+            str(self.__DATABASE_URL) + "genre/movie/list",
+            params=payload
+        )
         if req.status_code == 200:
             raw_request = req.json()
             return [raw_request['genres'][item]['name'] for item in range(len(raw_request['genres']))]
@@ -156,19 +183,20 @@ class MovieDB(AbstractRequest):
     def get_list_tv_genres(self):
         '''
         Request to get all the TV genres.
+
+        Returns
+        -------
+        list
+            list of all the TV genres
         '''
-        req = get(
-                    str(self.__DATABASE_URL) + "genre/tv/list?api_key=" + str(self.__API_KEY) + "&language=en-US"
-                )
+        payload = {
+            "api_key": str(self.__API_KEY),
+            "language": "en-US"
+        }
+        req = requests.get(
+            str(self.__DATABASE_URL) + "genre/tv/list",
+            params=payload
+        )
         if req.status_code == 200:
             raw_request = req.json()
             return [raw_request['genres'][item]['name'] for item in range(len(raw_request['genres']))]
-
-
-if __name__ == "__main__":
-    requests = MovieDB()
-    print(requests.get_tv_series_info(1995), "\n\n")
-    # print(requests.get_people_info(51366), "\n\n")
-    # print(requests.get_people_credits(12))
-    # print(requests.get_list_movie_genres())
-    # print(requests.get_list_tv_genres())
