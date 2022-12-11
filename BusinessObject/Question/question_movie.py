@@ -15,7 +15,7 @@ class QuestionMovie(AbstractQuestion, ABC):
             Title of the movie
         self.original_movie_title : string
             Title of the movie in its original language
-        self.budget : integertype_question = "movie plot"
+        self.budget : integer
             Budget of the movie
         self.genres_name : string
             Genres of the movie
