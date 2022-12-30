@@ -10,8 +10,9 @@ from utils.singleton import Singleton
 
 
 class QuestionFactory(metaclass=Singleton):
+    @staticmethod
     def instantiate_movie_question(
-            self, type_question, movie_title, original_movie_title,
+            type_question, movie_title, original_movie_title,
             budget, genres_name, release_date, spoken_languages, plot
             ) -> AbstractQuestion:
         question = None
@@ -47,8 +48,9 @@ class QuestionFactory(metaclass=Singleton):
             )
         return question
 
+    @staticmethod
     def instantiate_series_question(
-                self, type_question, series_title, original_series_title,
+                type_question, series_title, original_series_title,
                 first_air_date, last_air_date, nb_episodes_per_season,
                 nb_episodes_tot, nb_seasons, tv_host, genres_name,
                 spoken_languages, plot) -> AbstractQuestion:
