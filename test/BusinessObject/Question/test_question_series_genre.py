@@ -33,7 +33,7 @@ class TestQuestionSeriesGenre(TestCase):
         self.assertEqual(question.genres_name, ['Comedy'])
         self.assertEqual(question.spoken_languages, ['English'])
         self.assertEqual(question.plot, "Linda La Hughes (Kathy Burke) shares a flat with Tom Farrell (James Dreyfus). Linda is overweight, loudmouthed and not particularly attractive. She thinks she's gorgeous and irrestible, however. She's also sex mad and obsessed with men. Tom is an aspiring actor. He's got an agent, but finds it difficult to get parts. He doesn't like Linda much, in spite of (or perhaps because of) the fact that they share a flat. She isn't completely comfortable with his homosexuality, perhaps because she finds it difficult to live with a man who doesn't find her sexually attractive.")
-        self.assertEqual(question.type_question, 'series number seasons')
+        self.assertEqual(question.type_question, 'series genre')
         self.assertEqual(result, 'What is the main genre of the TV series Gimme Gimme Gimme?')
         self.assertEqual(correct_answer, 'Comedy')
         self.assertIsInstance(question, QuestionSeriesGenre)
