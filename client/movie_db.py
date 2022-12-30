@@ -14,7 +14,7 @@ class MovieDB(AbstractRequest):
         self.__API_KEY = os.environ.get('API_KEY')
 
     def get_movie_info(self, movie_id: int) -> QuestionFactory:
-        '''
+        """
         Request to get movie info based on its id.
 
         Parameters
@@ -25,14 +25,14 @@ class MovieDB(AbstractRequest):
         Returns
         -------
         dict
-            returns a dictionnary containing the following information :
+            returns a question containing the following information :
                 - movie title
                 - original movie title (in the language of the movie)
                 - budget
                 - genres
                 - spoken languages in the movie
                 - plot of the movie
-        '''
+        """
         payload = {
             "api_key": str(self.__API_KEY)
         }
@@ -56,7 +56,7 @@ class MovieDB(AbstractRequest):
             return question
 
     def get_tv_series_info(self, tv_id: int):
-        '''
+        """
         Request to tv series movie info based on its id.
 
         Parameters
@@ -67,7 +67,7 @@ class MovieDB(AbstractRequest):
         Returns
         -------
         dict
-            returns a dictionnary containing the following information :
+            returns a question containing the following information :
                 - series title
                 - original series title (in the language of the TV series)
                 - first air date
@@ -79,7 +79,7 @@ class MovieDB(AbstractRequest):
                 - genres
                 - spoken languages
                 - plot
-        '''
+        """
         payload = {
             "api_key": str(self.__API_KEY)
         }
@@ -89,23 +89,26 @@ class MovieDB(AbstractRequest):
         )
         if req.status_code == 200:
             raw_request = req.json()
-            result = {
-                'series_title': raw_request['name'],
-                'original_series_title': raw_request['original_name'],
-                'first_air_date': raw_request['first_air_date'],
-                'last_air_date': raw_request['last_air_date'],
-                'nb_episodes_per_season': [raw_request['seasons'][item]['episode_count'] for item in range(len(raw_request['seasons']))],
-                'nb_episodes_tot': sum([raw_request['seasons'][item]['episode_count'] for item in range(len(raw_request['seasons']))]),
-                'nb_seasons': len(raw_request['seasons']),
-                'tv_host': [raw_request['networks'][item]['name'] for item in range(len(raw_request['networks']))],
-                'genres_name': [raw_request['genres'][item]['name'] for item in range(len(raw_request['genres']))],
-                'spoken_languages': [raw_request['spoken_languages'][item]['english_name'] for item in range(len(raw_request['spoken_languages']))],
-                'plot': raw_request['overview']
-                }
-            return result
+            question_factory = QuestionFactory()
+            question = question_factory.instantiate_series_question(
+                series_title=raw_request['name'],
+                original_series_title=raw_request['original_name'],
+                first_air_date=raw_request['first_air_date'],
+                last_air_date=raw_request['last_air_date'],
+                nb_episodes_per_season=[raw_request['seasons'][item]['episode_count'] for item in range(len(raw_request['seasons']))],
+                nb_episodes_tot=sum(
+                    [raw_request['seasons'][item]['episode_count'] for item in range(len(raw_request['seasons']))]),
+                nb_seasons=len(raw_request['seasons']),
+                tv_host=[raw_request['networks'][item]['name'] for item in range(len(raw_request['networks']))],
+                genres_name=[raw_request['genres'][item]['name'] for item in range(len(raw_request['genres']))],
+                spoken_languages=[raw_request['spoken_languages'][item]['english_name'] for item in
+                                     range(len(raw_request['spoken_languages']))],
+                plot=raw_request['overview']
+            )
+            return question
 
     def get_people_info(self, people_id: int):
-        '''
+        """
         Request to get people info based on its id.
 
         Parameters
@@ -123,7 +126,7 @@ class MovieDB(AbstractRequest):
                 - date of birth
                 - date of death
                 - is the person dead ?
-        '''
+        """
         payload = {
             "api_key": str(self.__API_KEY)
         }
@@ -144,9 +147,9 @@ class MovieDB(AbstractRequest):
             return result
 
     def get_people_credits(self, people_id: int):
-        '''
+        """
         Request to get people info based on its id.
-        '''
+        """
         payload = {
             "api_key": str(self.__API_KEY),
             "language": "en-US"
@@ -160,14 +163,14 @@ class MovieDB(AbstractRequest):
             return raw_request
 
     def get_list_movie_genres(self):
-        '''
+        """
         Request to get all the movies genres.
 
         Returns
         -------
         list
             list of all the movie genres
-        '''
+        """
         payload = {
             "api_key": str(self.__API_KEY),
             "language": "en-US"
@@ -181,14 +184,14 @@ class MovieDB(AbstractRequest):
             return [raw_request['genres'][item]['name'] for item in range(len(raw_request['genres']))]
 
     def get_list_tv_genres(self):
-        '''
+        """
         Request to get all the TV genres.
 
         Returns
         -------
         list
             list of all the TV genres
-        '''
+        """
         payload = {
             "api_key": str(self.__API_KEY),
             "language": "en-US"
