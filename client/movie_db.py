@@ -95,15 +95,19 @@ class MovieDB(AbstractRequest):
                 original_series_title=raw_request['original_name'],
                 first_air_date=raw_request['first_air_date'],
                 last_air_date=raw_request['last_air_date'],
-                nb_episodes_per_season=[raw_request['seasons'][item]['episode_count'] for item in range(len(raw_request['seasons']))],
+                nb_episodes_per_season=[raw_request['seasons'][item]['episode_count'] for item
+                                        in range(len(raw_request['seasons']))],
                 nb_episodes_tot=sum(
-                    [raw_request['seasons'][item]['episode_count'] for item in range(len(raw_request['seasons']))]),
+                    [raw_request['seasons'][item]['episode_count'] for item in range(len(raw_request['seasons']))]
+                ),
                 nb_seasons=len(raw_request['seasons']),
                 tv_host=[raw_request['networks'][item]['name'] for item in range(len(raw_request['networks']))],
                 genres_name=[raw_request['genres'][item]['name'] for item in range(len(raw_request['genres']))],
                 spoken_languages=[raw_request['spoken_languages'][item]['english_name'] for item in
                                      range(len(raw_request['spoken_languages']))],
-                plot=raw_request['overview']
+                plot=raw_request['overview'],
+                type_question=choice(['series genre', 'series number episodes total', 'series number seasons',
+                                      'series plot'])
             )
             return question
 
