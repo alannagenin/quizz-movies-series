@@ -6,7 +6,7 @@ class QuestionSeriesPlot(QuestionSeries):
                 self, series_title, original_series_title, first_air_date,
                 last_air_date, nb_episodes_per_season, nb_episodes_tot,
                 nb_seasons, tv_host, genres_name, spoken_languages, plot):
-        '''
+        """
         A question about the name of a TV series based on its plot.
 
         Parameters
@@ -35,7 +35,7 @@ class QuestionSeriesPlot(QuestionSeries):
             Synopsis of the series in few lines
         self.type_question : string
             Type of the question
-        '''
+        """
         super().__init__(
             series_title, original_series_title, first_air_date,
             last_air_date, nb_episodes_per_season, nb_episodes_tot,
@@ -45,14 +45,14 @@ class QuestionSeriesPlot(QuestionSeries):
         self.type_question = "series plot"
 
     def display_question(self):
-        '''
+        """
             Returns the question as it should be displayed in the quizz.
-        '''
+        """
         return f"Which series best describes the description below?"\
             f"\nSynopsis: {self.plot}"
 
     def get_correct_answer(self):
-        '''
+        """
             Returns the correct answer of the corresponding question.
-        '''
+        """
         return self.series_title

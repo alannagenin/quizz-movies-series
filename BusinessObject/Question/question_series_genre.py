@@ -6,7 +6,7 @@ class QuestionSeriesGenre(QuestionSeries):
                 self, series_title, original_series_title, first_air_date,
                 last_air_date, nb_episodes_per_season, nb_episodes_tot,
                 nb_seasons, tv_host, genres_name, spoken_languages, plot):
-        '''
+        """
         A question about the genre of a TV series based on its name.
 
         Parameters
@@ -35,29 +35,29 @@ class QuestionSeriesGenre(QuestionSeries):
             Synopsis of the series in few lines
         self.type_question : string
             Type of the question
-        '''
+        """
         super().__init__(
                         series_title, original_series_title, first_air_date,
                         last_air_date, nb_episodes_per_season, nb_episodes_tot,
                         nb_seasons, tv_host, genres_name, spoken_languages,
                         plot
                         )
-        self.type_question = "series number seasons"
+        self.type_question = "series genre"
 
     def display_question(self):
-        '''
+        """
             Returns the question as it should be displayed in the quizz.
-        '''
+        """
         return f"What is the main genre of the TV series {self.series_title}?"
 
     def get_correct_answer(self):
-        '''
+        """
             Returns the first answer of the corresponding question.
-        '''
+        """
         return self.genres_name[0]
 
     def get_all_correct_answer(self):
-        '''
+        """
             Returns all the correct answers of the corresponding question.
-        '''
+        """
         return self.genres_name
