@@ -148,7 +148,7 @@ class MovieDB(AbstractRequest):
                 'place_birth': raw_request['place_of_birth'],
                 'date_birth': raw_request['birthday'],
                 'date_death': raw_request['deathday'],
-                'is_death': False if raw_request['deathday'] is None else True
+                'is_dead': False if raw_request['deathday'] is None else True
                 }
             return result
 
