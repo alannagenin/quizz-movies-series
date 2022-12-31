@@ -3,9 +3,9 @@ from BusinessObject.Question.question_series import QuestionSeries
 
 class QuestionSeriesPlot(QuestionSeries):
     def __init__(
-                self, series_title, original_series_title, first_air_date,
-                last_air_date, nb_episodes_per_season, nb_episodes_tot,
-                nb_seasons, tv_host, genres_name, spoken_languages, plot):
+            self, series_title, original_series_title, first_air_date,
+            last_air_date, nb_episodes_per_season, nb_episodes_tot,
+            nb_seasons, tv_host, genres_name, spoken_languages, plot):
         """
         A question about the name of a TV series based on its plot.
 
