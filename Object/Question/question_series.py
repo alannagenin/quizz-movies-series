@@ -1,14 +1,16 @@
-from BusinessObject.Question.question_series import QuestionSeries
+from abc import ABC, abstractmethod
+from Object.Question.abstract_question import AbstractQuestion
 
 
-class QuestionSeriesNumberSeasons(QuestionSeries):
+class QuestionSeries(AbstractQuestion, ABC):
     def __init__(
-                self, series_title, original_series_title, first_air_date,
-                last_air_date, nb_episodes_per_season, nb_episodes_tot,
-                nb_seasons, tv_host, genres_name, spoken_languages, plot):
+            self, series_title, original_series_title, first_air_date,
+            last_air_date, nb_episodes_per_season, nb_episodes_tot,
+            nb_seasons, tv_host, genres_name, spoken_languages,
+            plot
+            ):
         '''
-        A question about the number of seasons of a TV series based
-        on its name.
+        Create a new TV series question.
 
         Parameters
         ----------
@@ -37,22 +39,29 @@ class QuestionSeriesNumberSeasons(QuestionSeries):
         self.type_question : string
             Type of the question
         '''
-        super().__init__(
-            series_title, original_series_title, first_air_date,
-            last_air_date, nb_episodes_per_season, nb_episodes_tot,
-            nb_seasons, tv_host, genres_name, spoken_languages,
-            plot
-        )
-        self.type_question = "series number seasons"
+        self.series_title = series_title
+        self.original_series_title = original_series_title
+        self.first_air_date = first_air_date
+        self.last_air_date = last_air_date
+        self.nb_episodes_per_season = nb_episodes_per_season
+        self.nb_episodes_tot = nb_episodes_tot
+        self.nb_seasons = nb_seasons
+        self.tv_host = tv_host
+        self.genres_name = genres_name
+        self.spoken_languages = spoken_languages
+        self.plot = plot
+        self.type_question = "series"
 
+    @abstractmethod
     def display_question(self):
         '''
             Returns the question as it should be displayed in the quizz.
         '''
-        return f"How many seasons does the series {self.series_title} have?"
+        pass
 
+    @abstractmethod
     def get_correct_answer(self):
         '''
             Returns the correct answer of the corresponding question.
         '''
-        return self.nb_seasons
+        pass

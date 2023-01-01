@@ -1,5 +1,5 @@
 from unittest import TestCase
-from BusinessObject.Question.question_movie_plot import QuestionMoviePlot
+from Object.Question.question_movie_plot import QuestionMoviePlot
 
 
 class TestQuestionMoviePlot(TestCase):

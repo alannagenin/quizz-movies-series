@@ -4,7 +4,7 @@ import os
 from random import choice
 import requests
 from abstract_request import AbstractRequest
-from BusinessObject.Question.question_factory import QuestionFactory
+from Object.Question.question_factory import QuestionFactory
 load_dotenv()
 
 
@@ -142,15 +142,17 @@ class MovieDB(AbstractRequest):
         )
         if req.status_code == 200:
             raw_request = req.json()
-            result = {
-                'name': raw_request['name'],
-                'main_role': raw_request['known_for_department'],
-                'place_birth': raw_request['place_of_birth'],
-                'date_birth': raw_request['birthday'],
-                'date_death': raw_request['deathday'],
-                'is_dead': False if raw_request['deathday'] is None else True
-                }
-            return result
+            question_factory = QuestionFactory()
+            question = question_factory.instantiate_people_question(
+                name=raw_request['name'],
+                main_role=raw_request['known_for_department'],
+                place_birth=raw_request['place_of_birth'],
+                date_birth=raw_request['birthday'],
+                date_death=raw_request['deathday'],
+                is_dead=False if raw_request['deathday'] is None else True,
+                type_question=choice(['people birth date', 'people birth place', 'people death place', 'people is dead', 'people role'])
+            )
+            return question
 
     def get_people_credits(self, people_id: int):
         """

@@ -1,4 +1,4 @@
-from BusinessObject.Question.question_movie import QuestionMovie
+from Object.Question.question_movie import QuestionMovie
 
 
 class QuestionMovieGenre(QuestionMovie):

@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from BusinessObject.Question.abstract_question import AbstractQuestion
+from Object.Question.abstract_question import AbstractQuestion
 
 
 class QuestionMovie(AbstractQuestion, ABC):

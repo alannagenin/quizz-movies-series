@@ -1,7 +1,8 @@
-from BusinessObject.Question.question_people import QuestionPeople
+from abc import ABC, abstractmethod
+from Object.Question.abstract_question import AbstractQuestion
 
 
-class QuestionPeopleDeathDate(QuestionPeople):
+class QuestionPeople(AbstractQuestion, ABC):
     def __init__(
             self, name, main_role, place_birth, date_birth, date_death, is_dead
             ):
@@ -24,17 +25,24 @@ class QuestionPeopleDeathDate(QuestionPeople):
             Is the person death or not?
 
         """
-        super().__init__(name, main_role, place_birth, date_birth, date_death, is_dead)
-        self.type_question = 'people death date'
+        self.name = name
+        self.main_role = main_role
+        self.place_birth = place_birth
+        self.date_birth = date_birth
+        self.date_death = date_death
+        self.is_dead = is_dead
+        self.type_question = 'people'
 
+    @abstractmethod
     def display_question(self):
         """
             Returns the question as it should be displayed in the quizz.
         """
-        return f"When {self.name} died?"
+        pass
 
+    @abstractmethod
     def get_correct_answer(self):
         """
             Returns the correct answer of the corresponding question.
         """
-        return self.date_death
+        pass

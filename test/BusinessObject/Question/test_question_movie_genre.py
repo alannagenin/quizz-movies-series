@@ -1,5 +1,5 @@
 from unittest import TestCase
-from BusinessObject.Question.question_movie_genre import QuestionMovieGenre
+from Object.Question.question_movie_genre import QuestionMovieGenre
 
 
 class TestQuestionMovieGenre(TestCase):

@@ -1,9 +1,9 @@
-from BusinessObject.Question.question_people import QuestionPeople
+from Object.Question.question_people import QuestionPeople
 
 
-class QuestionPeopleBirthDate(QuestionPeople):
+class QuestionPeopleDeathDate(QuestionPeople):
     def __init__(
-            self, name, main_role, place_birth, date_birth, date_death, is_death
+            self, name, main_role, place_birth, date_birth, date_death, is_dead
             ):
         """
         Create a new people question.
@@ -24,17 +24,17 @@ class QuestionPeopleBirthDate(QuestionPeople):
             Is the person death or not?
 
         """
-        super().__init__(name, main_role, place_birth, date_birth, date_death, is_death)
-        self.type_question = 'people birth date'
+        super().__init__(name, main_role, place_birth, date_birth, date_death, is_dead)
+        self.type_question = 'people death date'
 
     def display_question(self):
         """
             Returns the question as it should be displayed in the quizz.
         """
-        return f"When is {self.name} born?"
+        return f"When {self.name} died?"
 
     def get_correct_answer(self):
         """
             Returns the correct answer of the corresponding question.
         """
-        return self.date_birth
+        return self.date_death

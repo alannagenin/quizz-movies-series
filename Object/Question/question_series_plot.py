@@ -1,4 +1,4 @@
-from BusinessObject.Question.question_series import QuestionSeries
+from Object.Question.question_series import QuestionSeries
 
 
 class QuestionSeriesPlot(QuestionSeries):

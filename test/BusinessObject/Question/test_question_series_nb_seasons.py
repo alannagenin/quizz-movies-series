@@ -1,5 +1,5 @@
 from unittest import TestCase
-from BusinessObject.Question.question_series_nb_seasons import QuestionSeriesNumberSeasons
+from Object.Question.question_series_nb_seasons import QuestionSeriesNumberSeasons
 
 
 class TestQuestionSeriesNumberSeasons(TestCase):

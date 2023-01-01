@@ -1,5 +1,5 @@
 from unittest import TestCase
-from BusinessObject.Question.question_people_death_date import QuestionPeopleDeathDate
+from Object.Question.question_people_death_date import QuestionPeopleDeathDate
 
 
 class TestQuestionPeopleDeathDate(TestCase):

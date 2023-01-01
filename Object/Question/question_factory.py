@@ -1,11 +1,16 @@
-from BusinessObject.Question.abstract_question import AbstractQuestion
-from BusinessObject.Question.question_movie_genre import QuestionMovieGenre
-from BusinessObject.Question.question_movie_plot import QuestionMoviePlot
-from BusinessObject.Question.question_movie_release_date import QuestionMovieReleaseDate
-from BusinessObject.Question.question_series_genre import QuestionSeriesGenre
-from BusinessObject.Question.question_series_nb_episodes_total import QuestionSeriesNumberEpisodesTotal
-from BusinessObject.Question.question_series_nb_seasons import QuestionSeriesNumberSeasons
-from BusinessObject.Question.question_series_plot import QuestionSeriesPlot
+from Object.Question.abstract_question import AbstractQuestion
+from Object.Question.question_movie_genre import QuestionMovieGenre
+from Object.Question.question_movie_plot import QuestionMoviePlot
+from Object.Question.question_movie_release_date import QuestionMovieReleaseDate
+from Object.Question.question_series_genre import QuestionSeriesGenre
+from Object.Question.question_series_nb_episodes_total import QuestionSeriesNumberEpisodesTotal
+from Object.Question.question_series_nb_seasons import QuestionSeriesNumberSeasons
+from Object.Question.question_series_plot import QuestionSeriesPlot
+from Object.Question.question_people_birth_date import QuestionPeopleBirthDate
+from Object.Question.question_people_birth_place import QuestionPeopleBirthPlace
+from Object.Question.question_people_death_date import QuestionPeopleDeathDate
+from Object.Question.question_people_is_dead import QuestionPeopleIsDead
+from Object.Question.question_people_role import QuestionPeopleRole
 from utils.singleton import Singleton
 
 
@@ -50,10 +55,10 @@ class QuestionFactory(metaclass=Singleton):
 
     @staticmethod
     def instantiate_series_question(
-                type_question, series_title, original_series_title,
-                first_air_date, last_air_date, nb_episodes_per_season,
-                nb_episodes_tot, nb_seasons, tv_host, genres_name,
-                spoken_languages, plot) -> AbstractQuestion:
+            type_question, series_title, original_series_title,
+            first_air_date, last_air_date, nb_episodes_per_season,
+            nb_episodes_tot, nb_seasons, tv_host, genres_name,
+            spoken_languages, plot) -> AbstractQuestion:
         question = None
         if type_question == "series genre":
             question = QuestionSeriesGenre(
@@ -110,5 +115,56 @@ class QuestionFactory(metaclass=Singleton):
                 genres_name=genres_name,
                 spoken_languages=spoken_languages,
                 plot=plot
+            )
+        return question
+
+    @staticmethod
+    def instantiate_people_question(
+            name: object, main_role: object, place_birth: object, date_birth: object, date_death: object, is_dead: object,
+            type_question: object) -> AbstractQuestion:
+        if type_question == "people birth date":
+            question = QuestionPeopleBirthDate(
+                name=name,
+                main_role=main_role,
+                place_birth=place_birth,
+                date_birth=date_birth,
+                date_death=date_death,
+                is_dead=is_dead
+            )
+        elif type_question == "people birth place":
+            question = QuestionPeopleBirthPlace(
+                name=name,
+                main_role=main_role,
+                place_birth=place_birth,
+                date_birth=date_birth,
+                date_death=date_death,
+                is_dead=is_dead
+            )
+        elif type_question == "people death date":
+            question = QuestionPeopleDeathDate(
+                name=name,
+                main_role=main_role,
+                place_birth=place_birth,
+                date_birth=date_birth,
+                date_death=date_death,
+                is_dead=is_dead
+            )
+        elif type_question == "people is dead":
+            question = QuestionPeopleIsDead(
+                name=name,
+                main_role=main_role,
+                place_birth=place_birth,
+                date_birth=date_birth,
+                date_death=date_death,
+                is_dead=is_dead
+            )
+        elif type_question == "people role":
+            question = QuestionPeopleRole(
+                name=name,
+                main_role=main_role,
+                place_birth=place_birth,
+                date_birth=date_birth,
+                date_death=date_death,
+                is_dead=is_dead
             )
         return question

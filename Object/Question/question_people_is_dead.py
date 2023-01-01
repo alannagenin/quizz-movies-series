@@ -1,4 +1,4 @@
-from BusinessObject.Question.question_people import QuestionPeople
+from Object.Question.question_people import QuestionPeople
 
 
 class QuestionPeopleIsDead(QuestionPeople):

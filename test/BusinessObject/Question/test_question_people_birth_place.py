@@ -1,5 +1,5 @@
 from unittest import TestCase
-from BusinessObject.Question.question_people_birth_place import QuestionPeopleBirthPlace
+from Object.Question.question_people_birth_place import QuestionPeopleBirthPlace
 
 
 class TestQuestionPeopleBirthPlace(TestCase):
@@ -11,7 +11,7 @@ class TestQuestionPeopleBirthPlace(TestCase):
             place_birth='Salisbury, Wiltshire, England, UK',
             date_birth='1946-02-21',
             date_death=None,
-            is_death=False
+            is_dead=False
         )
         # WHEN
         result = question.display_question()
