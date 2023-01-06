@@ -11,7 +11,7 @@ from app.business_object.Question.question_people_birth_place import QuestionPeo
 from app.business_object.Question.question_people_death_date import QuestionPeopleDeathDate
 from app.business_object.Question.question_people_is_dead import QuestionPeopleIsDead
 from app.business_object.Question.question_people_role import QuestionPeopleRole
-from utils.singleton import Singleton
+from app.utils.singleton import Singleton
 
 
 class QuestionFactory(metaclass=Singleton):
