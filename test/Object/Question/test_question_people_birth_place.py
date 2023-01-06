@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Object.Question.question_people_birth_place import QuestionPeopleBirthPlace
+from app.business_object.Question.question_people_birth_place import QuestionPeopleBirthPlace
 
 
 class TestQuestionPeopleBirthPlace(TestCase):

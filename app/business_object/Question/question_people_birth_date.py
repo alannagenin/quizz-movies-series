@@ -1,7 +1,7 @@
-from Object.Question.question_people import QuestionPeople
+from app.business_object.Question.question_people import QuestionPeople
 
 
-class QuestionPeopleDeathDate(QuestionPeople):
+class QuestionPeopleBirthDate(QuestionPeople):
     def __init__(
             self, name, main_role, place_birth, date_birth, date_death, is_dead
             ):
@@ -25,16 +25,16 @@ class QuestionPeopleDeathDate(QuestionPeople):
 
         """
         super().__init__(name, main_role, place_birth, date_birth, date_death, is_dead)
-        self.type_question = 'people death date'
+        self.type_question = 'people birth date'
 
     def display_question(self):
         """
             Returns the question as it should be displayed in the quizz.
         """
-        return f"When {self.name} died?"
+        return f"When is {self.name} born?"
 
     def get_correct_answer(self):
         """
             Returns the correct answer of the corresponding question.
         """
-        return self.date_death
+        return self.date_birth

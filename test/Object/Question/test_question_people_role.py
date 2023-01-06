@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Object.Question.question_people_role import QuestionPeopleRole
+from app.business_object.Question.question_people_role import QuestionPeopleRole
 
 
 class TestQuestionPeopleRole(TestCase):

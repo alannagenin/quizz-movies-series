@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Object.Question.question_series_nb_episodes_total import QuestionSeriesNumberEpisodesTotal
+from app.business_object.Question.question_series_nb_episodes_total import QuestionSeriesNumberEpisodesTotal
 
 
 class TestQuestionSeriesNumberEpisodesTotal(TestCase):

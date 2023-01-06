@@ -1,15 +1,11 @@
-from abc import ABC, abstractmethod
-from Object.Question.abstract_question import AbstractQuestion
+from app.business_object.Question.question_movie import QuestionMovie
 
 
-class QuestionMovie(AbstractQuestion, ABC):
-    def __init__(
-                self, movie_title, original_movie_title, budget, genres_name,
-                release_date, spoken_languages, plot):
-        '''
-        Create a new movie question.
+class QuestionMovieReleaseDate(QuestionMovie):
+    '''
+        A question about the release date of a movie
 
-        Parameters
+        Attributes
         ----------
         self.movie_title : string
             Title of the movie
@@ -28,25 +24,22 @@ class QuestionMovie(AbstractQuestion, ABC):
         self.type_question : string
             Type of the question
     '''
-        self.movie_title = movie_title
-        self.original_movie_title = original_movie_title
-        self.budget = budget
-        self.genres_name = genres_name
-        self.release_date = release_date
-        self.spoken_languages = spoken_languages
-        self.plot = plot
-        self.type_question = "movie"
+    def __init__(
+                self, movie_title, original_movie_title, budget, genres_name,
+                release_date, spoken_languages, plot):
+        super().__init__(
+                        movie_title, original_movie_title, budget, genres_name,
+                        release_date, spoken_languages, plot)
+        self.type_question = "movie release date"
 
-    @abstractmethod
     def display_question(self):
         '''
             Returns the question as it should be displayed in the quizz.
         '''
-        pass
+        return f"When was the film {self.movie_title} released?"
 
-    @abstractmethod
     def get_correct_answer(self):
         '''
             Returns the correct answer of the corresponding question.
         '''
-        pass
+        return self.release_date

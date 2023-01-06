@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from Object.Question.abstract_question import AbstractQuestion
+from app.business_object.Question.abstract_question import AbstractQuestion
 
 
 class QuestionSeries(AbstractQuestion, ABC):

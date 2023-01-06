@@ -1,14 +1,14 @@
-from Object.Question.question_series import QuestionSeries
+from app.business_object.Question.question_series import QuestionSeries
 
 
-class QuestionSeriesNumberSeasons(QuestionSeries):
+class QuestionSeriesNumberEpisodesTotal(QuestionSeries):
     def __init__(
-                self, series_title, original_series_title, first_air_date,
-                last_air_date, nb_episodes_per_season, nb_episodes_tot,
-                nb_seasons, tv_host, genres_name, spoken_languages, plot):
+            self, series_title, original_series_title, first_air_date,
+            last_air_date, nb_episodes_per_season, nb_episodes_tot,
+            nb_seasons, tv_host, genres_name, spoken_languages, plot):
         '''
-        A question about the number of seasons of a TV series based
-        on its name.
+        A question about the total number of episodes of a TV series
+        based on its name.
 
         Parameters
         ----------
@@ -43,16 +43,16 @@ class QuestionSeriesNumberSeasons(QuestionSeries):
             nb_seasons, tv_host, genres_name, spoken_languages,
             plot
         )
-        self.type_question = "series number seasons"
+        self.type_question = "series number episodes total"
 
     def display_question(self):
         '''
             Returns the question as it should be displayed in the quizz.
         '''
-        return f"How many seasons does the series {self.series_title} have?"
+        return f"How many episodes does the series {self.series_title} have?"
 
     def get_correct_answer(self):
         '''
             Returns the correct answer of the corresponding question.
         '''
-        return self.nb_seasons
+        return self.nb_episodes_tot

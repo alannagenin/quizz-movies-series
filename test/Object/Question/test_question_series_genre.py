@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Object.Question.question_series_genre import QuestionSeriesGenre
+from app.business_object.Question.question_series_genre import QuestionSeriesGenre
 
 
 class TestQuestionSeriesGenre(TestCase):

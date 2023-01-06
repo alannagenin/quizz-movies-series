@@ -1,7 +1,7 @@
-from Object.Question.question_people import QuestionPeople
+from app.business_object.Question.question_people import QuestionPeople
 
 
-class QuestionPeopleRole(QuestionPeople):
+class QuestionPeopleBirthPlace(QuestionPeople):
     def __init__(
             self, name, main_role, place_birth, date_birth, date_death, is_dead
             ):
@@ -25,16 +25,16 @@ class QuestionPeopleRole(QuestionPeople):
 
         """
         super().__init__(name, main_role, place_birth, date_birth, date_death, is_dead)
-        self.type_question = 'people role'
+        self.type_question = 'people birth place'
 
     def display_question(self):
         """
             Returns the question as it should be displayed in the quizz.
         """
-        return f"What is the main role of {self.name}?"
+        return f"Where is {self.name} born?"
 
     def get_correct_answer(self):
         """
             Returns the correct answer of the corresponding question.
         """
-        return self.main_role
+        return self.place_birth

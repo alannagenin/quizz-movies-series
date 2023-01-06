@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Object.Question.question_series_plot import QuestionSeriesPlot
+from app.business_object.Question.question_series_plot import QuestionSeriesPlot
 
 
 class TestQuestionSeriesPlot(TestCase):

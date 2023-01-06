@@ -1,9 +1,9 @@
-from Object.Question.question_movie import QuestionMovie
+from app.business_object.Question.question_movie import QuestionMovie
 
 
-class QuestionMovieReleaseDate(QuestionMovie):
+class QuestionMoviePlot(QuestionMovie):
     '''
-        A question about the release date of a movie
+        A question about the name of a movie based on its plot.
 
         Attributes
         ----------
@@ -20,7 +20,7 @@ class QuestionMovieReleaseDate(QuestionMovie):
         self.spoken_languages : string
             Languages spoken in the movie
         self.plot : string
-            Synopsis of the movie in few lines
+            Synopsis of the movie in one or few lines
         self.type_question : string
             Type of the question
     '''
@@ -28,18 +28,19 @@ class QuestionMovieReleaseDate(QuestionMovie):
                 self, movie_title, original_movie_title, budget, genres_name,
                 release_date, spoken_languages, plot):
         super().__init__(
-                        movie_title, original_movie_title, budget, genres_name,
-                        release_date, spoken_languages, plot)
-        self.type_question = "movie release date"
+            movie_title, original_movie_title, budget, genres_name,
+            release_date, spoken_languages, plot
+        )
+        self.type_question = "movie plot"
 
     def display_question(self):
         '''
             Returns the question as it should be displayed in the quizz.
         '''
-        return f"When was the film {self.movie_title} released?"
+        return f"Which movie best describes the description below?\nSynopsis: {self.plot}"
 
     def get_correct_answer(self):
         '''
-            Returns the correct answer of the corresponding question.
+            Returns the name of the movie.
         '''
-        return self.release_date
+        return self.movie_title

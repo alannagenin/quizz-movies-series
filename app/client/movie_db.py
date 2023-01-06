@@ -3,8 +3,8 @@ from dotenv import load_dotenv
 import os
 from random import choice
 import requests
-from abstract_request import AbstractRequest
-from Object.Question.question_factory import QuestionFactory
+from app.client.abstract_request import AbstractRequest
+from app.business_object.Question.question_factory import QuestionFactory
 load_dotenv()
 
 

@@ -1,9 +1,9 @@
-from Object.Question.question_movie import QuestionMovie
+from app.business_object.Question.question_movie import QuestionMovie
 
 
-class QuestionMoviePlot(QuestionMovie):
+class QuestionMovieGenre(QuestionMovie):
     '''
-        A question about the name of a movie based on its plot.
+        A question about the genre of a movie
 
         Attributes
         ----------
@@ -20,7 +20,7 @@ class QuestionMoviePlot(QuestionMovie):
         self.spoken_languages : string
             Languages spoken in the movie
         self.plot : string
-            Synopsis of the movie in one or few lines
+            Synopsis of the movie in few lines
         self.type_question : string
             Type of the question
     '''
@@ -28,19 +28,25 @@ class QuestionMoviePlot(QuestionMovie):
                 self, movie_title, original_movie_title, budget, genres_name,
                 release_date, spoken_languages, plot):
         super().__init__(
-            movie_title, original_movie_title, budget, genres_name,
-            release_date, spoken_languages, plot
-        )
-        self.type_question = "movie plot"
+                        movie_title, original_movie_title, budget, genres_name,
+                        release_date, spoken_languages, plot,
+                        )
+        self.type_question = "movie genre"
 
     def display_question(self):
         '''
             Returns the question as it should be displayed in the quizz.
         '''
-        return f"Which movie best describes the description below?\nSynopsis: {self.plot}"
+        return f"What is the main genre of the movie {self.movie_title}?"
 
     def get_correct_answer(self):
         '''
-            Returns the name of the movie.
+            Returns the first answer of the corresponding question.
         '''
-        return self.movie_title
+        return self.genres_name[0]
+
+    def get_all_correct_answer(self):
+        '''
+            Returns all the correct answers of the corresponding question.
+        '''
+        return self.genres_name

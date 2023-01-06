@@ -1,13 +1,13 @@
-from Object.Question.question_series import QuestionSeries
+from app.business_object.Question.question_series import QuestionSeries
 
 
-class QuestionSeriesGenre(QuestionSeries):
+class QuestionSeriesPlot(QuestionSeries):
     def __init__(
-                self, series_title, original_series_title, first_air_date,
-                last_air_date, nb_episodes_per_season, nb_episodes_tot,
-                nb_seasons, tv_host, genres_name, spoken_languages, plot):
+            self, series_title, original_series_title, first_air_date,
+            last_air_date, nb_episodes_per_season, nb_episodes_tot,
+            nb_seasons, tv_host, genres_name, spoken_languages, plot):
         """
-        A question about the genre of a TV series based on its name.
+        A question about the name of a TV series based on its plot.
 
         Parameters
         ----------
@@ -37,27 +37,22 @@ class QuestionSeriesGenre(QuestionSeries):
             Type of the question
         """
         super().__init__(
-                        series_title, original_series_title, first_air_date,
-                        last_air_date, nb_episodes_per_season, nb_episodes_tot,
-                        nb_seasons, tv_host, genres_name, spoken_languages,
-                        plot
-                        )
-        self.type_question = "series genre"
+            series_title, original_series_title, first_air_date,
+            last_air_date, nb_episodes_per_season, nb_episodes_tot,
+            nb_seasons, tv_host, genres_name, spoken_languages,
+            plot
+        )
+        self.type_question = "series plot"
 
     def display_question(self):
         """
             Returns the question as it should be displayed in the quizz.
         """
-        return f"What is the main genre of the TV series {self.series_title}?"
+        return f"Which series best describes the description below?"\
+            f"\nSynopsis: {self.plot}"
 
     def get_correct_answer(self):
         """
-            Returns the first answer of the corresponding question.
+            Returns the correct answer of the corresponding question.
         """
-        return self.genres_name[0]
-
-    def get_all_correct_answer(self):
-        """
-            Returns all the correct answers of the corresponding question.
-        """
-        return self.genres_name
+        return self.series_title

@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Object.Question.question_movie_release_date import QuestionMovieReleaseDate
+from app.business_object.Question.question_movie_release_date import QuestionMovieReleaseDate
 
 
 class TestQuestionMovieReleaseDate(TestCase):
