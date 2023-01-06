@@ -16,16 +16,7 @@ class TestQuestionSeriesPlot(TestCase):
             tv_host=['BBC One', 'BBC Two'],
             genres_name=['Comedy'],
             spoken_languages=['English'],
-            plot="Linda La Hughes (Kathy Burke) shares a flat with Tom Farrell"
-            " (James Dreyfus). Linda is overweight, loudmouthed and not "
-            "particularly attractive. She thinks she's gorgeous and irrestible"
-            ", however. She's also sex mad and obsessed with men. Tom is an "
-            "aspiring actor. He's got an agent, but finds it difficult to get"
-            "parts. He doesn't like Linda much, in spite of (or perhaps "
-            "because of) the fact that they share a flat. She isn't completely"
-            " comfortable with his homosexuality, perhaps because she finds it"
-            " difficult to live with a man who doesn't find her sexually "
-            "attractive."
+            plot="Linda La Hughes (Kathy Burke) shares a flat with Tom Farrell (James Dreyfus). Linda is overweight, loudmouthed and not particularly attractive. She thinks she's gorgeous and irrestible however. She's also sex mad and obsessed with men. Tom is an aspiring actor. He's got an agent, but finds it difficult to get parts. He doesn't like Linda much, in spite of (or perhaps because of) the fact that they share a flat. She isn't completely comfortable with his homosexuality, perhaps because she finds it difficult to live with a man who doesn't find her sexually attractive."
         )
         # WHEN
         result = question.display_question()
@@ -43,31 +34,12 @@ class TestQuestionSeriesPlot(TestCase):
         self.assertEqual(question.spoken_languages, ['English'])
         self.assertEqual(
             question.plot,
-            "Linda La Hughes (Kathy Burke) shares a flat with Tom Farrell"
-            " (James Dreyfus). Linda is overweight, loudmouthed and not "
-            "particularly attractive. She thinks she's gorgeous and irrestible"
-            ", however. She's also sex mad and obsessed with men. Tom is an "
-            "aspiring actor. He's got an agent, but finds it difficult to get"
-            "parts. He doesn't like Linda much, in spite of (or perhaps "
-            "because of) the fact that they share a flat. She isn't completely"
-            " comfortable with his homosexuality, perhaps because she finds it"
-            " difficult to live with a man who doesn't find her sexually "
-            "attractive."
+            "Linda La Hughes (Kathy Burke) shares a flat with Tom Farrell (James Dreyfus). Linda is overweight, loudmouthed and not particularly attractive. She thinks she's gorgeous and irrestible however. She's also sex mad and obsessed with men. Tom is an aspiring actor. He's got an agent, but finds it difficult to get parts. He doesn't like Linda much, in spite of (or perhaps because of) the fact that they share a flat. She isn't completely comfortable with his homosexuality, perhaps because she finds it difficult to live with a man who doesn't find her sexually attractive."
         )
         self.assertEqual(question.type_question, 'series plot')
         self.assertEqual(
             result,
-            "Which series best describes the description below?\nSynopsis: "
-            "Linda La Hughes (Kathy Burke) shares a flat with Tom Farrell "
-            "(James Dreyfus). Linda is overweight, loudmouthed and not "
-            "particularly attractive. She thinks she's gorgeous and irrestible"
-            ", however. She's also sex mad and obsessed with men. Tom is an "
-            "aspiring actor. He's got an agent, but finds it difficult to get "
-            "parts. He doesn't like Linda much, in spite of (or perhaps "
-            "because of) the fact that they share a flat. She isn't completely"
-            " comfortable with his homosexuality, perhaps because she finds it"
-            " difficult to live with a man who doesn't find her sexually "
-            "attractive."
+            "Which series best describes the description below?\nSynopsis: Linda La Hughes (Kathy Burke) shares a flat with Tom Farrell (James Dreyfus). Linda is overweight, loudmouthed and not particularly attractive. She thinks she's gorgeous and irrestible however. She's also sex mad and obsessed with men. Tom is an aspiring actor. He's got an agent, but finds it difficult to get parts. He doesn't like Linda much, in spite of (or perhaps because of) the fact that they share a flat. She isn't completely comfortable with his homosexuality, perhaps because she finds it difficult to live with a man who doesn't find her sexually attractive."
         )
         self.assertEqual(correct_answer, 'Gimme Gimme Gimme')
         self.assertIsInstance(question, QuestionSeriesPlot)
