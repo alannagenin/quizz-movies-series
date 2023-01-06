@@ -47,14 +47,17 @@ class MovieDB(AbstractRequest):
                 movie_title=raw_request['title'],
                 original_movie_title=raw_request['original_title'],
                 budget=raw_request['budget'],
-                genres_name=[raw_request['genres'][item]['name'] for item in range(len(raw_request['genres']))],
+                genres_name=[raw_request['genres'][item]['name']
+                             for item in range(len(raw_request['genres']))],
                 release_date=datetime.strptime(
                     raw_request['release_date'],
                     '%Y-%m-%d'
                 ).year,
-                spoken_languages=[raw_request['spoken_languages'][item]['english_name'] for item in range(len(raw_request['spoken_languages']))],
+                spoken_languages=[raw_request['spoken_languages'][item]['english_name']
+                                  for item in range(len(raw_request['spoken_languages']))],
                 plot=raw_request['overview'],
-                type_question=choice(['movie genre', 'movie plot', 'movie release date'])
+                type_question=choice(
+                    ['movie genre', 'movie plot', 'movie release date'])
             )
             return question
 
@@ -101,12 +104,16 @@ class MovieDB(AbstractRequest):
                 nb_episodes_per_season=[raw_request['seasons'][item]['episode_count'] for item
                                         in range(len(raw_request['seasons']))],
                 nb_episodes_tot=sum(
-                    [raw_request['seasons'][item]['episode_count'] for item in range(len(raw_request['seasons']))]
+                    [raw_request['seasons'][item]['episode_count']
+                        for item in range(len(raw_request['seasons']))]
                 ),
                 nb_seasons=len(raw_request['seasons']),
-                tv_host=[raw_request['networks'][item]['name'] for item in range(len(raw_request['networks']))],
-                genres_name=[raw_request['genres'][item]['name'] for item in range(len(raw_request['genres']))],
-                spoken_languages=[raw_request['spoken_languages'][item]['english_name'] for item in range(len(raw_request['spoken_languages']))],
+                tv_host=[raw_request['networks'][item]['name']
+                         for item in range(len(raw_request['networks']))],
+                genres_name=[raw_request['genres'][item]['name']
+                             for item in range(len(raw_request['genres']))],
+                spoken_languages=[raw_request['spoken_languages'][item]['english_name']
+                                  for item in range(len(raw_request['spoken_languages']))],
                 plot=raw_request['overview'],
                 type_question=choice(['series genre', 'series number episodes total', 'series number seasons',
                                       'series plot'])
@@ -150,9 +157,29 @@ class MovieDB(AbstractRequest):
                 date_birth=raw_request['birthday'],
                 date_death=raw_request['deathday'],
                 is_dead=False if raw_request['deathday'] is None else True,
-                type_question=choice(['people birth date', 'people birth place', 'people death place', 'people is dead', 'people role'])
+                type_question=choice(
+                    ['people birth date', 'people birth place',
+                     'people death place', 'people is dead', 'people role']
+                )
             )
             return question
+    
+    def get_movie_cast(self, movie_id: int):
+        """
+        Request to get casting of a movie based on its id.
+        """
+        payload = {
+            "api_key": str(self.__API_KEY),
+            "language": "en-US"
+        }
+        req = requests.get(
+            str(self.__DATABASE_URL) + "person/" +
+            str(movie_id) + "/credits",
+            params=payload
+        )
+        if req.status_code == 200:
+            raw_request = req.json()
+            return raw_request
 
     def get_people_credits(self, people_id: int):
         """
@@ -163,7 +190,8 @@ class MovieDB(AbstractRequest):
             "language": "en-US"
         }
         req = requests.get(
-            str(self.__DATABASE_URL) + "person/" + str(people_id) + "/combined_credits",
+            str(self.__DATABASE_URL) + "person/" +
+            str(people_id) + "/combined_credits",
             params=payload
         )
         if req.status_code == 200:
