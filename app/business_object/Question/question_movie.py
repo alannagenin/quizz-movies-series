@@ -4,13 +4,15 @@ from app.business_object.Question.abstract_question import AbstractQuestion
 
 class QuestionMovie(AbstractQuestion, ABC):
     def __init__(
-                self, movie_title, original_movie_title, budget, genres_name,
-                release_date, spoken_languages, plot):
+                self, movie_id, movie_title, original_movie_title, budget,
+                genres_name, release_date, spoken_languages, plot):
         '''
         Create a new movie question.
 
         Parameters
         ----------
+        self.movie_id : int
+            ID of the movie
         self.movie_title : string
             Title of the movie
         self.original_movie_title : string
@@ -28,6 +30,7 @@ class QuestionMovie(AbstractQuestion, ABC):
         self.type_question : string
             Type of the question
     '''
+        self.movie_id = movie_id
         self.movie_title = movie_title
         self.original_movie_title = original_movie_title
         self.budget = budget

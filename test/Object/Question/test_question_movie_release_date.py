@@ -6,6 +6,7 @@ class TestQuestionMovieReleaseDate(TestCase):
     def test_question_movie_release_date(self):
         # GIVEN
         question = QuestionMovieReleaseDate(
+            movie_id=160,
             movie_title='The Fifth Element',
             original_movie_title='The Fifth Element',
             budget=90000000,

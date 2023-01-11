@@ -17,12 +17,13 @@ from app.utils.singleton import Singleton
 class QuestionFactory(metaclass=Singleton):
     @staticmethod
     def instantiate_movie_question(
-            type_question, movie_title, original_movie_title,
+            type_question, movie_id, movie_title, original_movie_title,
             budget, genres_name, release_date, spoken_languages, plot
             ) -> AbstractQuestion:
         question = None
         if type_question == "movie genre":
             question = QuestionMovieGenre(
+                movie_id=movie_id,
                 movie_title=movie_title,
                 original_movie_title=original_movie_title,
                 budget=budget,
@@ -33,6 +34,7 @@ class QuestionFactory(metaclass=Singleton):
             )
         elif type_question == "movie plot":
             question = QuestionMoviePlot(
+                movie_id=movie_id,
                 movie_title=movie_title,
                 original_movie_title=original_movie_title,
                 budget=budget,
@@ -43,6 +45,7 @@ class QuestionFactory(metaclass=Singleton):
             )
         elif type_question == "movie release date":
             question = QuestionMovieReleaseDate(
+                movie_id=movie_id,
                 movie_title=movie_title,
                 original_movie_title=original_movie_title,
                 budget=budget,
@@ -120,8 +123,8 @@ class QuestionFactory(metaclass=Singleton):
 
     @staticmethod
     def instantiate_people_question(
-            name: object, main_role: object, place_birth: object, date_birth: object, date_death: object, is_dead: object,
-            type_question: object) -> AbstractQuestion:
+            name, main_role, place_birth, date_birth, date_death, is_dead,
+            type_question) -> AbstractQuestion:
         if type_question == "people birth date":
             question = QuestionPeopleBirthDate(
                 name=name,

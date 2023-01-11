@@ -7,6 +7,8 @@ class QuestionMovieReleaseDate(QuestionMovie):
 
         Attributes
         ----------
+        self.movie_id : int
+            ID of the movie
         self.movie_title : string
             Title of the movie
         self.original_movie_title : string
@@ -24,12 +26,13 @@ class QuestionMovieReleaseDate(QuestionMovie):
         self.type_question : string
             Type of the question
     '''
+
     def __init__(
-                self, movie_title, original_movie_title, budget, genres_name,
-                release_date, spoken_languages, plot):
+            self, movie_id, movie_title, original_movie_title, budget,
+            genres_name, release_date, spoken_languages, plot):
         super().__init__(
-                        movie_title, original_movie_title, budget, genres_name,
-                        release_date, spoken_languages, plot)
+            movie_id, movie_title, original_movie_title, budget, genres_name,
+            release_date, spoken_languages, plot)
         self.type_question = "movie release date"
 
     def display_question(self):
