@@ -18,7 +18,7 @@ class QuestionFactory(metaclass=Singleton):
     @staticmethod
     def instantiate_movie_question(
             type_question, movie_id, movie_title, original_movie_title,
-            budget, genres_name, release_date, spoken_languages, plot
+            budget, genres_name, release_date, spoken_languages, main_actors, plot
             ) -> AbstractQuestion:
         question = None
         if type_question == "movie genre":
@@ -30,6 +30,7 @@ class QuestionFactory(metaclass=Singleton):
                 genres_name=genres_name,
                 release_date=release_date,
                 spoken_languages=spoken_languages,
+                main_actors=main_actors,
                 plot=plot
             )
         elif type_question == "movie plot":
@@ -41,6 +42,7 @@ class QuestionFactory(metaclass=Singleton):
                 genres_name=genres_name,
                 release_date=release_date,
                 spoken_languages=spoken_languages,
+                main_actors=main_actors,
                 plot=plot
             )
         elif type_question == "movie release date":
@@ -52,6 +54,7 @@ class QuestionFactory(metaclass=Singleton):
                 genres_name=genres_name,
                 release_date=release_date,
                 spoken_languages=spoken_languages,
+                main_actors=main_actors,
                 plot=plot
             )
         return question

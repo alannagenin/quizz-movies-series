@@ -29,10 +29,11 @@ class QuestionMovieGenre(QuestionMovie):
 
     def __init__(
             self, movie_id, movie_title, original_movie_title, budget,
-            genres_name, release_date, spoken_languages, plot):
+            genres_name, release_date, spoken_languages, main_actors, plot
+    ):
         super().__init__(
             movie_id, movie_title, original_movie_title, budget,
-            genres_name, release_date, spoken_languages, plot,
+            genres_name, release_date, spoken_languages, main_actors, plot,
         )
         self.type_question = "movie genre"
 

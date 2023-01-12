@@ -4,8 +4,9 @@ from app.business_object.Question.abstract_question import AbstractQuestion
 
 class QuestionMovie(AbstractQuestion, ABC):
     def __init__(
-                self, movie_id, movie_title, original_movie_title, budget,
-                genres_name, release_date, spoken_languages, plot):
+        self, movie_id, movie_title, original_movie_title, budget,
+        genres_name, release_date, spoken_languages, main_actors, plot
+    ):
         '''
         Create a new movie question.
 
@@ -37,6 +38,7 @@ class QuestionMovie(AbstractQuestion, ABC):
         self.genres_name = genres_name
         self.release_date = release_date
         self.spoken_languages = spoken_languages
+        self.main_actors = main_actors
         self.plot = plot
         self.type_question = "movie"
 

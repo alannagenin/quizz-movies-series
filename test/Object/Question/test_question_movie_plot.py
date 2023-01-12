@@ -6,7 +6,7 @@ class TestQuestionMoviePlot(TestCase):
     def test_question_movie_plot(self):
         # GIVEN
         question = QuestionMoviePlot(
-            movie_id=160,
+            movie_id=550,
             movie_title='The Fifth Element',
             original_movie_title='The Fifth Element',
             budget=90000000,
@@ -14,6 +14,17 @@ class TestQuestionMoviePlot(TestCase):
                          'Action', 'Thriller', 'Science Fiction'],
             release_date=1997,
             spoken_languages=['English', 'Swedish', 'German'],
+            main_actors=[
+                {'name': 'Bruce Willis', 'character': 'Korben Dallas'},
+                {'name': 'Milla Jovovich', 'character': 'Leeloo'},
+                {'name': 'Gary Oldman', 'character': 'Jean-Baptiste Emmanuel Zorg'},
+                {'name': 'Ian Holm', 'character': 'Father Vito Cornelius'},
+                {'name': 'Chris Tucker', 'character': 'Ruby Rhod'},
+                {'name': 'Luke Perry', 'character': 'Billy'},
+                {'name': 'Brion James', 'character': 'General Munro'},
+                {'name': "Tom 'Tiny' Lister Jr.", 'character': 'President Lindberg'},
+                {'name': 'Lee Evans', 'character': 'Fog'},
+                {'name': 'Charlie Creed-Miles', 'character': 'David'}],
             plot='In 2257, a taxi driver is unintentionally given the task of '
             'saving a young girl who is part of the key that will ensure the '
             'survival of humanity.'

@@ -26,12 +26,14 @@ class QuestionMoviePlot(QuestionMovie):
         self.type_question : string
             Type of the question
     '''
+
     def __init__(
-                self, movie_id, movie_title, original_movie_title, budget,
-                genres_name, release_date, spoken_languages, plot):
+        self, movie_id, movie_title, original_movie_title, budget,
+        genres_name, release_date, spoken_languages, main_actors, plot
+    ):
         super().__init__(
             movie_id, movie_title, original_movie_title, budget, genres_name,
-            release_date, spoken_languages, plot
+            release_date, spoken_languages, main_actors, plot
         )
         self.type_question = "movie plot"
 
